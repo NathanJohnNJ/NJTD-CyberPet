@@ -1,0 +1,156 @@
+/********* FONTS *********/
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
+/********* NAVBAR *********/
+.navbarLeft, .navbarRight{
+    display: flex;
+    position: absolute;
+}
+.navbarLeft{
+    margin-left: 50px;
+}
+.navbarRight{
+    right:0;
+}
+.page{
+    margin: 5px;
+    margin-top: 12px;
+    font-size: 25px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+    color: black;
+}
+.current{
+    margin: 10px;
+    font-size: 30px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+    color: darkblue;
+}
+.loginReg{
+    display:flex;
+    margin-right: 50px;
+}
+.loginBtn, .registerBtn{
+    margin: 5px;
+    margin-top:12px;
+    font-size: 25px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    background: none;
+    border: none;
+}
+.page:hover, .current:hover, .loginBtn:hover, .registerBtn:hover{
+    text-decoration: underline dashed;
+    text-decoration-color: blue;
+    
+}
+
+/********* INTRO *********/
+.introText{
+    animation: fadein 5s;
+}
+.brought{
+    animation: fadein 5s;
+    margin-top: -35px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 900;
+    font-size: 45px;
+}
+.njcodes{
+    animation: fadein 15s;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 900;
+    font-size: 52px;
+    margin-top: -20px;
+}
+
+@keyframes fadein {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+
+
+/********* MAIN GAME COMPONENT *********/
+.mainGameComp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: none;
+}
+
+.background{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 85vh;
+    height: 85vh; 
+    margin: 10px;
+    margin-bottom: 80px;
+    border-radius: 50%;
+    background-color: #FF0000;
+}
+
+.gameTitle{
+    font-family: 'Londrina Outline', cursive;
+    font-size: 12vh;
+    color: rgb(171, 253, 204);
+    text-shadow: -3px 3px 1px black ;
+    margin-bottom: 75%
+}
+
+/********* MAIN GAME COMPONENT *********/
+.petDiv{
+    width: 60vh;
+    height: 40vh;
+    position: absolute;
+    margin-left: 13vh;
+    background-color: darkgray;
+}
+/********* FOOTER *********/
+.footerDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    position:absolute;
+    bottom: 0;
+    justify-content: flex-end;
+    align-items: center;
+    height: 15vh;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: flex-end;
+}
+.footerImgDiv{
+    margin: 15px;
+}
+.footerLogo{
+    width:80px;
+    height: 80px;
+}
+.footerText{
+    font-size: 1.5vh;
+    font-family: 'Raleway', sans-serif;
+    font-weight:700;
+    line-height: 2px;
+    margin-top: 20px;
+    color: grey;
+}
+.github{
+    text-decoration: none;
+    color: black;
+}
+.github:hover{
+    text-decoration: none;  
+    color: darkblue;
+}

@@ -4,8 +4,7 @@ const mongoose = require("mongoose");
 const connection = async  () => {
     try {
         await mongoose.connect (
-            // process.env.MONGO_URI
-            "mongodb+srv://codesnj:brother1@cluster0.ir1xkr9.mongodb.net/?retryWrites=true&w=majority"
+            process.env.MONGO_URI
         )
     } catch (error) {
         console.log(error)

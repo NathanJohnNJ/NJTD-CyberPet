@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+
 import Intro from '../components/intro';
 
 const Home = (props) => {

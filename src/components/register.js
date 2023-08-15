@@ -3,24 +3,47 @@ import { useState } from 'react';
 import { registerUser } from '../utils/index.js';
 import { NavLink } from 'react-router-dom';
 
+
 const Register = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [checkPassword, setCheckPassword] = useState("");
     const [email, setEmail] = useState("");
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
+    // const PasswordChecker = () => {
+    //     if(checkPassword === password){
+    //         registerHandler()
+    //         }else{
+    //             console.log("no match")
+    //             return(
+    //         <p className="noMatch">Passords do not match. Please try again.</p>
+    //        ) }
+    // }
+    
+    const registerHandler = async () => {
+        const registered = await registerUser(firstName, lastName, username, email, password)
+        console.log(registered)
+        }
+    
     function openModal(){
         setModalIsOpen(true)
     }
     function closeModal(){
         setModalIsOpen(false)
     }
-    async function registerHandler(){
-        const registered = await registerUser(firstName, lastName, username, email, password)
-        console.log(registered)
-    }
+    // async function registerHandler(){
+    //     if(checkPassword === password){
+    //     const registered = await registerUser(firstName, lastName, username, email, password)
+    //     console.log(registered)
+    //     }else{
+    //         setishidden(false)
+    //     }
+    // }
+
+    
 
     return(
         <div className="register">
@@ -55,7 +78,7 @@ const Register = () => {
                                 <input type="password" className="registerInput" onChange={(e) => setPassword(e.target.value)}></input>
                             </label>
                             <label className="registerLabel">REPEAT PASSWORD:
-                                <input type="password" className="registerInput" onChange={(e) => setPassword(e.target.value)}></input>
+                                <input type="password" className="registerInput" onChange={(e) => setCheckPassword(e.target.value)}></input>
                             </label>
                         </div>
                         <div className="terms">
@@ -64,8 +87,10 @@ const Register = () => {
                             <span className="text">I have read and agree to the <NavLink className="tandc" target="_blank" to="/terms">terms & conditions</NavLink> of CyberPet by NJ Codes - a branch of NJTD.</span></p>
                             </label>
                         </div>
-                        <p className="please">Please press the button below and then login from the home page.</p>
-                        <NavLink to="/" className="registerBtn" type="submit">REGISTER</NavLink>
+                        <div>
+                            <p className="please">Please press the button below and then login from the home page.</p>
+                            <NavLink to="/" className="modalRegisterBtn" type="submit">REGISTER</NavLink>
+                            </div>
                     </form>
                 </div>
             </Modal>

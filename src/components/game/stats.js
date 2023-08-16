@@ -2,10 +2,6 @@ import '../style.css';
 import Modal from 'react-modal';
 import { useState } from 'react';
 
-// Happiness, Hunger, Thirst, Energy
-// Level, Difficulty
-// Type, Name
-
 const Stats = (props) => {
     const [hunger, setHunger] = useState(0);
     const [thirst, setThirst] = useState(0);

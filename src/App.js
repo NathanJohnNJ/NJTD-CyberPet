@@ -14,6 +14,9 @@ function App() {
   const [gameCookie, setGameCookie] = useState("");
   const [user, setUser] = useState("");
   const [gameDetails, setGameDetails] = useState({});
+  const [difficulty, setDifficulty] = useState("");
+  const [ petName, setPetName] = useState("");
+  const [ pet, setPet] = useState({});
 
   return (
     <div className="App">
@@ -27,7 +30,7 @@ function App() {
       <Routes> 
           <Route index element={<Home cookie={cookie} setCookie={setCookie} user={user} setUser={setUser} />} />
           <Route path="njcodes" element={<NjCodes cookie={cookie} setCookie={setCookie} user={user} setUser={setUser} />} />
-          <Route path="game" element={<Game gameCookie={gameCookie} setGameCookie={setGameCookie} cookie={cookie} setCookie={setCookie} user={user} setUser={setUser} gameDetails={gameDetails} setGameDetails={setGameDetails}/>} />
+          <Route path="game" element={<Game gameCookie={gameCookie} setGameCookie={setGameCookie} cookie={cookie} setCookie={setCookie} user={user} setUser={setUser} gameDetails={gameDetails} setGameDetails={setGameDetails} difficulty={difficulty} setDifficulty={setDifficulty} pet={pet} setPet={setPet} petName={petName} setPetName={setPetName}/>} />
           <Route path="terms" element={<Terms />} />
       </Routes>
     </div>

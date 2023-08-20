@@ -48,9 +48,9 @@ export const loginUser = async (username, password, setUser, setCookie, setToken
     }
 }
 
-export const saveGame = async (username, setUser, token, gameDetails) => {
+export const saveGame = async (username, setUser, token, gameDetails, user, setGameCookie) => {
     try {
-        const response = await fetch('http://localhost:5001/user/edit', {
+        const response = await fetch('http://localhost:5001/users/savegame', {
             method: "PUT",
             headers: {"Content-Type": "application/json",
             "Access-Control-Allow-Origin": "http://localhost:5001",
@@ -60,8 +60,11 @@ export const saveGame = async (username, setUser, token, gameDetails) => {
                 gameDetails: gameDetails
             })
         })
+        const cookie = await writeGameCookie(user, gameDetails)
+        setGameCookie(cookie)
         const data = await response.json()
-        setUser(data.user);
+        setUser(data.user)
+        console.log(cookie)
     } catch (error) {
         console.error("error updating user", error);
     }

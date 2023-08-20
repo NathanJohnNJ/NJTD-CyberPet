@@ -12,15 +12,15 @@
     --red: #FF0000;
 }
 /********* NAVBAR *********/
-.navbarLeft, .navbarRight{
+.navbarMain{
+    height: 50px;
+}
+.navbarLeft {
     display: flex;
     position: absolute;
 }
 .navbarLeft{
     margin-left: 50px;
-}
-.navbarRight{
-    right:0;
 }
 .page{
     margin: 5px;
@@ -39,86 +39,13 @@
     text-decoration: none;
     color: var(--darkBlue);
 }
-.loginReg{
-    display:flex;
-    margin-right: 50px;
-}
-.loginBtn, .registerBtn{
-    margin: 5px;
-    margin-top:12px;
-    font-size: 25px;
-    font-family: 'League Spartan', sans-serif;
-    font-weight: 800;
-    background: none;
-    border: none;
-    text-decoration: none;
-    color: var(--black);
-}
-.page:hover, .current:hover, .loginBtn:hover, .registerBtn:hover{
+
+.page:hover, .current:hover{
     text-decoration: underline dashed;
     text-decoration-color: var(--blue);
     
 }
 
-/********* REGISTER MODAL *********/
-.register{
-    
-}
-.registerBtn{
-
-}
-.registerModal, .loginModal{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-.closeBtn{
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end
-}
-.name, .emailUser, .passwords{
-    display: flex;
-    flex-direction: row;
-    justify-content: center
-
-}
-.registerLabel, .tsandcs{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin:10px;
-    font-family: 'League Spartan', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-.please{
-    display: flex;
-    justify-content: center;
-    margin:10px;
-    font-family: 'League Spartan', sans-serif;
-    font-size: 20px;
-}
-.modalRegisterBtn{
-    display: flex;
-    justify-content: center;;
-    margin: 5px;
-    margin-top:40px;
-    font-size: 35px;
-    font-family: 'League Spartan', sans-serif;
-    font-weight: 800;
-    background: none;
-    border: none;
-    text-decoration: none;
-    color: var(--black);
-}
-.modalRegisterBtn:hover{
-    color: var(--grey);
-    text-shadow: -1px 1px 1px var(--darkBlue);
-}
 /********* INTRO *********/
 .introText{
     animation: fadein 5s;
@@ -143,17 +70,24 @@
     to {opacity: 1}
   }
 
-
 /********* MAIN GAME COMPONENT *********/
-.mainGameComp{
+/* .mainGameComp{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
     background: none;
+} */
+.mainGame{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: none;
 }
-
 .background{
     display: flex;
     flex-direction: column;
@@ -165,42 +99,219 @@
     margin-bottom: 80px;
     border-radius: 50%;
     background-color: var(--red);
+    position: relative;
+    
 }
-
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .gameTitle{
     font-family: 'Londrina Outline', cursive;
     font-size: 12vh;
     color: rgb(171, 253, 204);
     text-shadow: -3px 3px 1px var(--black) ;
-    margin-bottom: 74%
+    margin-top: -5%;
+    position:relative;
+    width: 100%;
+}
+.mainGamePetDiv{
+    margin-top: -12vh;
+    margin-bottom: 13vh;
+}
+.petInfo{
+    text-transform: uppercase;
+    font-family: 'Londrina Outline', cursive;
+    letter-spacing: 2.5px;
+    font-size: 5vh;
+    color: rgb(185, 218, 198);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/********* GAME MENU *********/
+.menuDiv{
+    display: flex;
+    justify-content: center;
+}
+.menuBtn{
+    width: 50px;
+    height: 50px;  
+    position: absolute;
+    top: 0;
+    margin-top: 2vh;
+}
+.menuBtn:hover{
+    rotate: 90deg;
+    transition: rotate 1s;
 }
 
-/********* MAIN GAME COMPONENT *********/
+/********* OPTIONS *********/
+.gameOptions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: -50px;
+    justify-content: center;
+}
+.firstField{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.firstField fieldset{
+    display:flex;
+    flex-direction: row;
+    align-items: space-between;
+}
+.firstField .checkBoxDiv{
+    display:flex;
+    flex-direction: column-reverse;
+    align-items: center
+}
+
+.secondField{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fieldSet{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 180px;
+    align-items: center;   
+}
+.legend{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+}
+.label{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+}
+.petName{
+    margin: 20px 5px;
+}
+.submit{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    position: relative;
+    z-index: 99;
+
+    border-radius: 15%;
+    box-shadow: 2px 2px 3px #000000 ;
+    background-color: white;
+    }
+.submit:hover{
+    text-shadow: 2px 2px 3px #000000 ;
+    box-shadow: -2px -2px 3px #000000 inset;
+    color: red;
+    background-color: antiquewhite;
+}
+/********* PET COMPONENT *********/
 .petDiv{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 60vh;
     height: 40vh;
-    position: absolute;
     margin-left: 12.6vh;
-    margin-top: 5px;
+    margin-top: -180px;
     border-radius: 20%;
     background-color: var(--darkGrey);
 }
+.innerPetDiv{
+    
+}
+.mainPet{
+    /* border-radius: 20%;
+    background-color: darkolivegreen; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/********* STATS COMPONENT *********/
+.statsDiv{
+
+}
+.stats{
+    position: relative;
+    width: 425px;
+    margin-left: 150px;
+}
+.statsField{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+}
+.statsLegend{
+    width: 100px;
+    margin-bottom: -10px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+.progress{
+    width: 200px;
+}
+.progressFill{
+    max-width: 200px;
+}
+.hungerThirstDiv{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.hungerDiv{
+    
+}
+.thirstDiv{
+
+}
+.energyHappinessDiv{
+    display: flex;
+    justify-content: flex-start;
+}
+.energyDiv{
+
+}
+.happinessDiv{
+
+}
+.buttonsDiv{
+
+}
+.statBtn{
+    text-transform: uppercase;
+}
+
+
 /********* FOOTER *********/
 .footerDiv{
     display: flex;
     flex-direction: column;
-
     width: 100vw;
     position:absolute;
     bottom: 0;
+    z-index: 99;
     justify-content: flex-end;
     align-items: center;
     height: 15vh;
 }
 .footer{
     display: flex;
+    margin-bottom: -6vh;
     flex-direction: row;
     justify-content: center;
     justify-self: flex-end;

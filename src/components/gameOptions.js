@@ -1,54 +1,74 @@
 import './style.css';
+import { writeGameCookie } from '../common'
 
 const GameOptions = (props) => {
 
-    function submitHandler(){
-        
+    const submitHandler = async(event) => {
+        props.setGameDetails({
+            pet: props.pet,
+            petName: props.petName,
+            level: props.level,
+            stats: {
+                hunger: props.hunger,
+                thirst: props.thirst,
+                energy: props.energy,
+                happiness: props.happiness,
+                difficulty: props.difficulty
+                }
+            })
+        const cookie = await writeGameCookie(props.user, props.gameDetails)
+        props.setGameCookie(cookie)
+        console.log(cookie)
+        event.preventDefault()
     }
 
     return (
         <div className="mainGameComp">
-            <div className="background">
-                <h1 className="gameTitle">CYBER PET</h1>
-                <div className="gameOptions">
-                    <form onSubmit={submitHandler}>
+            <div className="gameOptions">
+                <form target="self" onSubmit={submitHandler}>
+                    <div className="firstField">
                         <fieldset className="fieldSet">
                             <legend className="legend">Select Your Pet:</legend>
                             <div className="checkBoxDiv">
                                 <input type="radio" id="fairy" name="pet" value="fairy" onChange={(e) => props.setPet(e.target.value)} />
-                                <label className="label" for="fairy">FAIRY</label>
+                                <label className="label" htmlFor="fairy">FAIRY</label>
+                            </div>
+                            <div className="checkBoxDiv">
+                                <input type="radio" id="dragon" name="pet" value="dragon" onChange={(e) => props.setPet(e.target.value)} />
+                                <label className="label" htmlFor="dragon">DRAGON</label>
                             </div>
                             <div className="checkBoxDiv">
                                 <input type="radio" id="goblin" name="pet" value="goblin" onChange={(e) => props.setPet(e.target.value)} />
-                                <label className="label" for="goblin">GOBLIN</label>
+                                <label className="label" htmlFor="goblin">GOBLIN</label>
                             </div>
                             <div className="checkBoxDiv">
                                 <input type="radio" id="unicorn" name="pet" value="unicorn" onChange={(e) => props.setPet(e.target.value)} />
-                                <label className="label" for="unicorn">UNICORN</label>
+                                <label className="label" htmlFor="unicorn">UNICORN</label>
                             </div>
                         </fieldset>
-                        <fieldset className="fieldSet">
-                            <label className="label">Choose A Name For Your Pet:
-                                <input className="petName" onChange={(e) => props.setPetName(e.target.value)}></input>
-                            </label>
-                        </fieldset>
+                    </div>
+                    <label className="label">Choose A Name For Your Pet:
+                        <input className="petName" onChange={(e) => props.setPetName(e.target.value)}></input>
+                    </label>
+                    <div className="secondField">
                         <fieldset className="fieldSet">
                             <legend className="legend">Select Difficulty:</legend>
                             <div className="checkBoxDiv">
                                 <input type="radio" id="easy" name="diff" value="easy" onChange={(e) => props.setDifficulty(e.target.value)} />
-                                <label className="label" for="easy">EASY</label>
+                                <label className="label" htmlFor="easy">EASY</label>
                             </div>
                             <div className="checkBoxDiv">
                                 <input type="radio" id="medium" name="diff" value="medium" onChange={(e) => props.setDifficulty(e.target.value)} />
-                                <label className="label" for="medium">MEDIUM</label>
+                                <label className="label" htmlFor="medium">MEDIUM</label>
                             </div>
                             <div className="checkBoxDiv">
                                 <input type="radio" id="hard" name="diff" value="hard" onChange={(e) => props.setDifficulty(e.target.value)} />
-                                <label className="label" for="hard">HARD</label>
+                                <label className="label" htmlFor="hard">HARD</label>
                             </div>
                         </fieldset>
-                    </form>
-                </div>
+                    </div>
+                    <button type="submit" className="submit">PLAY NOW</button>
+                </form>
             </div>
         </div>
     )

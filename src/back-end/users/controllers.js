@@ -63,7 +63,7 @@ const saveGame = async (req, res) => {
     try {
         const savedGame = await User.updateOne(
             { username: req.body.username },
-            { $set :{ gameDetails: req.body }
+            { $set :{ gameDetails: req.body.gameDetails }
         });
         const successResponse = {
             message: `Game saved for ${req.body.name}.`,

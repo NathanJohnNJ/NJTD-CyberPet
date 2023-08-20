@@ -7,9 +7,9 @@ const Intro = (props) => {
 
     return(
         <div className="intro">
-            {props.cookie?
+            {props.gameCookie?
             <div className="game">
-                <Game gameCookie={props.gameCookie} setGameCookie={props.setGameCookie} cookie={props.cookie} setCookie={props.setCookie} user={props.user} setUser={props.setUser} gameDetails={props.gameDetails} setGameDetails={props.setGameDetails} difficulty={props.difficulty} setDifficulty={props.setDifficulty} pet={props.pet} setPet={props.setPet} petName={props.petName} setPetName={props.setPetName} setHunger={props.setHunger} hunger={props.hunger} thirst={props.thirst} setThirst={props.setThirst} happiness={props.happiness} setHappiness={props.setHappiness} energy={props.energy} setEnergy={props.setEnergy} level={props.level} setLevel={props.setLevel} />
+                <Game gameCookie={props.gameCookie} setGameCookie={props.setGameCookie} gameDetails={props.gameDetails} setGameDetails={props.setGameDetails} difficulty={props.difficulty} setDifficulty={props.setDifficulty} pet={props.pet} setPet={props.setPet} petName={props.petName} setPetName={props.setPetName} setHunger={props.setHunger} hunger={props.hunger} thirst={props.thirst} setThirst={props.setThirst} happiness={props.happiness} setHappiness={props.setHappiness} energy={props.energy} setEnergy={props.setEnergy} level={props.level} setLevel={props.setLevel} />
             </div>
             :
             <div className="logoAnimation">

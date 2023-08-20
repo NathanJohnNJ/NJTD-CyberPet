@@ -1,21 +1,10 @@
 import '../style.css';
-import Modal from 'react-modal';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import ProgressBar from './progressBar';
 import GameOver from './gameover';
 
 const Stats = (props) => {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [info, setInfo] = useState({});
 
-    let energy = props.energy
-    let happiness = props.happiness
-    let hunger = props.hunger
-    let thirst = props.thirst
-    const setEnergy = props.setEnergy
-    const setHappiness = props.setHappiness
-    const setHunger = props.setHunger
-    const setThirst = props.setThirst
     let depletionRate, increaseFactor, decreaseFactor;
     if(props.difficulty==="hard"){
          depletionRate = 2;
@@ -32,82 +21,82 @@ const Stats = (props) => {
     }
     
     useEffect(() => {
-        if(energy > 100){
-            setEnergy(100)
-        }else if(energy > 0){
-            setTimeout(() => setEnergy(energy - depletionRate), 1000);
-        }else if(energy<=0){
+        if(props.energy > 100){
+            props.setEnergy(100)
+        }else if(props.energy > 0){
+            setTimeout(() => props.setEnergy(props.energy - depletionRate), 1000);
+            console.log(props.energy)
+        }else if(props.energy<=0){
             return(
                 <GameOver reason="You ran out of energy!" />
             )
         }
-    }, [energy])
+    }, [props.energy])
     useEffect(() => {
-        if(happiness > 100){
-            setHappiness(100)
-        }else if(happiness > 0){
-            setTimeout(() => setHappiness(happiness - depletionRate), 1000);
-        }else if(happiness<=0){
+        if(props.happiness > 100){
+            props.setHappiness(100)
+        }else if(props.happiness > 0){
+            setTimeout(() => props.setHappiness(props.happiness - depletionRate), 1000);
+            console.log(props.happiness)
+        }else if(props.happiness<=0){
             return(
                 <GameOver reason="You ran out of happiness!" />
             )
         }
-    }, [happiness])
+    }, [props.happiness])
     useEffect(() => {
-        if(hunger < 0){
-            setHunger(0)
-        }else if(hunger < 100){
-            setTimeout(() => setHunger(hunger + depletionRate), 1000);
-        }else if(hunger>=100){
+        if(props.hunger > 100){
+            props.setHunger(100)
+        }else if(props.hunger > 0){
+            setTimeout(() => props.setHunger(props.hunger - depletionRate), 1000);
+            console.log(props.hunger)
+        }else if(props.hunger<=0){
             return(
                 <GameOver reason="You got too hungry!" />
             )
         }
-    }, [hunger])
+    }, [props.hunger])
     useEffect(() => {
-        if(thirst < 0){
-            setThirst(0)
-        }else if(thirst < 100){
-            setTimeout(() => setThirst(thirst + depletionRate), 1000);
-        }else if(thirst>=100){
+        if(props.thirst > 100){
+            props.setThirst(100)
+        }else if(props.thirst > 0){
+            setTimeout(() => props.setThirst(props.thirst - depletionRate), 1000);
+            console.log(props.thirst)
+        }else if(props.thirst<=0){
             return(
                 <GameOver reason="You got too thirsty!" />
             )
         }
-    }, [thirst])
+    }, [props.thirst])
 
-   
-
-    const food = () => {
-        setHunger(hunger -= 10*increaseFactor)
-		setThirst(thirst += 5*decreaseFactor)
-		setHappiness(happiness += 5*increaseFactor)
-		setEnergy(energy -= 5*decreaseFactor)
+    function food(){
+            props.setHunger(props.hunger += 5*increaseFactor)
+            props.setThirst(props.thirst -= 2*decreaseFactor)
+            props.setHappiness(props.happiness += 3*increaseFactor)
+            props.etEnergy(props.energy += 5*decreaseFactor)
     }
-    const drink = () => {
-        setThirst(thirst -= 10*increaseFactor)
-		setHunger(hunger -= 5*increaseFactor)
-		setHappiness(happiness += 5*increaseFactor)
-		setEnergy(energy += 5*increaseFactor)
+    function drink(){
+            props.setThirst(props.thirst += 5*increaseFactor)
+            props.setHunger(props.hunger += 2*increaseFactor)
+            props.setHappiness(props.happiness += 3*increaseFactor)
+            props.setEnergy(props.energy += 2*increaseFactor)
     }
-    const sleep = () => {
-        setEnergy(energy += 30*increaseFactor)
-		setHunger(hunger += 5*decreaseFactor)
-		setThirst(thirst += 5*decreaseFactor)
-		setHappiness(happiness += 5*increaseFactor)
+    function sleep(){
+            props.setEnergy(props.energy += 5*increaseFactor)
+            props.setHunger(props.hunger -= 3*decreaseFactor)
+            props.setThirst(props.thirst -= 3*decreaseFactor)
+            props.setHappiness(props.happiness += 2*increaseFactor)
     }
-    const smile = () => {
-        setHappiness(happiness += 10*increaseFactor)
+    function activity(){
+            props.setEnergy(props.energy -= 2*decreaseFactor)
+            props.setHunger(props.hunger -= 3*decreaseFactor)
+            props.setThirst(props.thirst -= 3*decreaseFactor)
+            props.setHappiness(props.happiness += 5*increaseFactor)  
     }
-    const buttons = [food, drink, sleep, smile]; 
-    const btnNames = ["FOOD", "DRINK", "SLEEP", "SMILE"]; 
-
     // function explain(){
     //     `You have chosen ${props.difficulty} difficulty. This means your stats will automatically increase/decrease at a rate of ${depletionRate}/second. `
     // }
  
-    
-    
     return(
         <div className="statsDiv">
            <div className="stats">
@@ -116,38 +105,38 @@ const Stats = (props) => {
                     <div className="hungerThirstDiv">
                         <div className="hungerDiv">
                             <label className="label" htmlFor="hunger">Hunger
-                                <ProgressBar className="progress" id="hunger" completed={hunger} />
+                                <ProgressBar className="progress" id="hunger" completed={props.hunger} />
                             </label>
+                            <div className="hover">
+                                <h1>HUNGER</h1>
+                                <p className="hoverText">Press the food button to feed your {props.pet}. This will also give your {props.pet} more energy and make them happy! But beware, they will get more and more thirsy, the more they eat!</p>
+                            </div>
                         </div>
                         <div className="thirstDiv">
                             <label className="label" htmlFor="thirst">Thirst
-                                <ProgressBar className="progress" id="thirst" completed={thirst} />
+                                <ProgressBar className="progress" id="thirst" completed={props.thirst} />
                             </label>
                         </div>
                     </div>
                     <div className="energyHappinessDiv">
                         <div className="energyDiv">
                             <label className="label" htmlFor="energy">Energy
-                                <ProgressBar className="progress" id="energy" completed={energy} />
+                                <ProgressBar className="progress" id="energy" completed={props.energy} />
                             </label>
                         </div>
                         <div className="happinessDiv">
                             <label className="label" htmlFor="happiness">Happiness
-                                <ProgressBar className="progress" id="happiness" completed={happiness} />
+                                <ProgressBar className="progress" id="happiness" completed={props.happiness} />
                             </label>
                         </div>
                     </div>
                 </fieldset>
-                    
            </div>
            <div className="buttonsDiv">
-                {buttons.map((button, i) => {
-                    return(
-                        <div key={i} className="btn">
-                            <button className="statBtn" onClick={button}>{btnNames[i]}</button>
-                        </div>
-                    )
-                })}
+                <button className="statBtn" onClick={food}>FOOD</button>
+                <button className="statBtn" onClick={drink}>DRINK</button>
+                <button className="statBtn" onClick={sleep}>SLEEP</button>
+                <button className="statBtn" onClick={activity}>{props.activity}</button>
            </div>
         </div>
     )

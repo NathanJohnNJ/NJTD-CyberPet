@@ -25,9 +25,9 @@ const Game = (props) => {
                 {
                     !props.gameCookie
                 ?
-                    <GameOptions user={props.user} gameDetails={props.gameDetails} setGameDetails={props.setGameDetails} setPetName={props.setPetName} setDifficulty={props.setDifficulty} setPet={props.setPet} setGameCookie={props.setGameCookie} />
+                    <GameOptions setPetName={props.setPetName} setDifficulty={props.setDifficulty} setPet={props.setPet} setGameCookie={props.setGameCookie} activity={props.activity} setActivity={props.setActivity}/>
                 :
-                    <MainGame gameDetails={props.gameDetails} user={props.User} setUser={props.setUser} setGameDetails={props.setGameDetails} gameCookie={props.gameCookie} setGameCookie={props.setGameCookie} difficulty={props.difficulty} setDifficulty={props.setDifficulty} pet={props.pet} setPet={props.setPet} petName={props.petName} setPetName={props.setPetName} setHunger={props.setHunger} hunger={props.hunger} thirst={props.thirst} setThirst={props.setThirst} happiness={props.happiness} setHappiness={props.setHappiness} energy={props.energy} setEnergy={props.setEnergy} level={props.level} setLevel={props.setLevel} />
+                    <MainGame gameCookie={props.gameCookie} setGameCookie={props.setGameCookie} difficulty={props.difficulty} setDifficulty={props.setDifficulty} pet={props.pet} setPet={props.setPet} petName={props.petName} setPetName={props.setPetName} setHunger={props.setHunger} hunger={props.hunger} thirst={props.thirst} setThirst={props.setThirst} happiness={props.happiness} setHappiness={props.setHappiness} energy={props.energy} setEnergy={props.setEnergy} activity={props.activity} setActivity={props.setActivity}/>
                 }
                 </div>
             </motion.div>

@@ -1,24 +1,17 @@
 import './style.css';
-import { writeGameCookie } from '../common'
+import { writeGameCookie } from '../common';
+import { NavLink } from 'react-router-dom';
 
 const GameOptions = (props) => {
 
-    const submitHandler = async(event) => {
-        props.setGameDetails({
-            pet: props.pet,
-            petName: props.petName,
-            level: props.level,
-            stats: {
-                hunger: props.hunger,
-                thirst: props.thirst,
-                energy: props.energy,
-                happiness: props.happiness,
-                difficulty: props.difficulty
-                }
-            })
-        const cookie = await writeGameCookie(props.user, props.gameDetails)
+    const submitHandler = (event) => {
+        if(props.pet==="fairy"){
+            props.setActivity("Sprinkling Fairy Dust")
+        } else if(props.pet==="dragon"){
+            props.setActivity("Guarding Treasure")
+        }
+        const cookie = writeGameCookie(props.pet, props.petName, props.difficulty)
         props.setGameCookie(cookie)
-        console.log(cookie)
         event.preventDefault()
     }
 
@@ -67,7 +60,7 @@ const GameOptions = (props) => {
                             </div>
                         </fieldset>
                     </div>
-                    <button type="submit" className="submit">PLAY NOW</button>
+                    <NavLink onClick={submitHandler} to="/game" className="submit">PLAY NOW</NavLink>
                 </form>
             </div>
         </div>

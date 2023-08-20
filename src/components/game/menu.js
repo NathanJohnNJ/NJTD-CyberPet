@@ -2,7 +2,6 @@ import '../style.css';
 import menu from '../../images/menu.png'
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { saveGame } from '../../utils'
 
 const Menu = (props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -11,14 +10,11 @@ const Menu = (props) => {
         setModalIsOpen(true)
     }
     function closeModal(){
+        props.setGameDetails(props.gameDetails)
         setModalIsOpen(false)
     }
-
-    const saveHandler = async () => {
-        await saveGame(props.username, props.setUser, props.token, props.gameDetails, props.user, props.setGameCookie)
-}
     const restartHandler = () => {
-
+        props.setGameCookie('');
     } 
     return(
         <div className="menuDiv">
@@ -31,7 +27,6 @@ const Menu = (props) => {
             >
                 <div className="menuModal">
                     <button className="closeBtn" onClick={closeModal}>X</button>
-                    <button className="saveBtn" onClick={saveHandler}>SAVE</button>
                     <button className="restartBtn" onClick={restartHandler}>RESTART</button>
                 </div>
             </Modal>

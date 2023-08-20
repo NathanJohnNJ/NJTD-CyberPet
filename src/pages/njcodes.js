@@ -11,7 +11,7 @@ const NjCodes = (props) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 3 }}
             >
-                
+                <h1 className="njTitle">NJ CODES</h1>
             </motion.div>
         </div>
     )

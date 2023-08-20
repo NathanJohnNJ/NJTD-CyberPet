@@ -1,7 +1,6 @@
 import '../style.css';
 import Fairy from './fairy'
 import Dragon from './dragon'
-// import { Fairy } from './fairy.js'
 
 const Pet = (props) => {
 

@@ -16,7 +16,7 @@ const Home = (props) => {
             transition={{ duration: 3 }}
             >
             <div className="content">
-                <Intro cookie={props.cookie} />
+                <Intro gameCookie={props.gameCookie}/>
             </div>
             </motion.div>
         </div>

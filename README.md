@@ -1,12 +1,5 @@
 # NJTD-CyberPet
 
-I have designed this app with a full stack approach. All you need to do is create a MongoDB cluster and add the details to a .env file, along with SALT_ROUNDS and SECRET. Then from the root directory you can run ./start.sh and both the back and front ends will launch.
-
-Any errors will be console logged for each process for debugging purposes.
-
-I hope anyone who tries this out enjoys it! Feel free to suggest any changes, be them with the code itself, or with new characters or games.
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

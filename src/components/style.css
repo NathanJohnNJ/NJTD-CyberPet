@@ -231,9 +231,6 @@
     border-radius: 20%;
     background-color: var(--darkGrey);
 }
-.innerPetDiv{
-    
-}
 .mainPet{
     /* border-radius: 20%;
     background-color: darkolivegreen; */
@@ -242,9 +239,6 @@
     align-items: center;
 }
 /********* STATS COMPONENT *********/
-.statsDiv{
-
-}
 .stats{
     position: relative;
     width: 425px;
@@ -273,29 +267,93 @@
     justify-content: flex-start;
 
 }
-.hungerDiv{
-    
-}
-.thirstDiv{
-
-}
 .energyHappinessDiv{
     display: flex;
     justify-content: flex-start;
 }
-.energyDiv{
 
-}
-.happinessDiv{
-
-}
 .buttonsDiv{
-
+    display: flex;
+    justify-content: space-evenly;
+    width:200px;
 }
 .statBtn{
     text-transform: uppercase;
 }
+.hover{
+    display: none;
+}
+.hover:hover{
+    display: flex;
+    position: absolute;
+}
 
+/********* STOP WATCH *********/
+.mainGameTimer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+.stop-watch {
+	height: 100px;
+	width: 85px;
+	background-color: #0d0c1b;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    border-radius: 25%;
+}
+.timer {
+	margin-top: 20px;
+    margin-bottom: -30px;
+}
+
+.digits {
+	font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+	color: #f5f5f5;
+}
+
+.mili-sec {
+	color: #e42a2a;
+}
+.Control-Buttons {
+	margin: 3rem 0;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn-grp {
+	display: flex;
+	align-items: center;
+}
+.timerBtn {
+	border-radius: 14px;
+	display: flex;
+	border: 2px solid #e42a2a;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	color: #f5f5f5;
+}
+.btn-one {
+	background-color: #e42a2a;
+    display: flex;
+    flex-direction: column;
+}
+.btn-two {
+	background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+.playBtn, .pauseBtn, .resetBtn{
+    height:30px;
+    width:30px;
+}
 
 /********* FOOTER *********/
 .footerDiv{

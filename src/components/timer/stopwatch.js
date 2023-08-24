@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "../style.css";
-import Timer from "./timer";
 import ControlButtons from "./controlButtons";
 
-function StopWatch() {
-	const [isActive, setIsActive] = useState(false);
-	const [isPaused, setIsPaused] = useState(true);
-	const [time, setTime] = useState(0);
+function StopWatch(props) {
+	const isActive = props.isActive
+	const isPaused = props.isPaused
+	const time = props.time
+	const setTime = props.setTime
+	const setIsPaused = props.setIsPaused
+	const setIsActive = props.setIsActive
 
 	useEffect(() => {
 		let interval = null;
-		if (isActive && isPaused === false) {
+		if (props.isActive && props.isPaused === false) {
 			interval = setInterval(() => {
 				setTime((time) => time + 30);
 			}, 30);
@@ -20,23 +22,13 @@ function StopWatch() {
 		return () => {
 			clearInterval(interval);
 		};
+		// eslint-disable-next-line
 	}, [isActive, isPaused]);
 
-	const handleStart = () => {
-		setIsActive(true);
-		setIsPaused(false);
-	};
-	const handlePauseResume = () => {
-		setIsPaused(!isPaused);
-	};
-	const handleReset = () => {
-		setIsActive(false);
-		setTime(0);
-	};
+	
 	return (
 		<div className="stop-watch">
-			<Timer time={time} />
-			<ControlButtons active={isActive}isPaused={isPaused} handleStart={handleStart} handlePauseResume={handlePauseResume} handleReset={handleReset} />
+			<ControlButtons isActive={props.isActive} isPaused={props.isPaused} setIsActive={setIsActive} setIsPaused={setIsPaused} setTime={setTime} time={time} setHunger={props.setHunger} hunger={props.hunger} thirst={props.thirst} setThirst={props.setThirst} happiness={props.happiness} setHappiness={props.setHappiness} energy={props.energy} setEnergy={props.setEnergy} />
 		</div>
 	);
 }

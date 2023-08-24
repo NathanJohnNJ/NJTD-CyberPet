@@ -1,23 +1,22 @@
 import '../style.css';
-import Fairy from './fairy'
-import Dragon from './dragon'
+import Fairy from '../game/petImages/fairy.gif'
 
 const Pet = (props) => {
 
     const PetDecider = () => {
-        if(props.pet==="dragon"){
-            return (
-               <div>
-                <Dragon />
-               </div> 
-            )
-        }else{
-            return (
-                <div>
-                 <Fairy />
-                </div> 
-             )
-        }
+        // if(props.pet==="dragon"){
+        //     return (
+        //        <div>
+        //         <Dragon />
+        //        </div> 
+        //     )
+        // }else{
+        //     return (
+        //         <div>
+        //          <img src={Fairy} alt="fairy"></img>
+        //         </div> 
+        //      )
+        // }
         // } else if(props.pet==="fairy"){
         //     return <FairyComplete />
         // } else if (props.pet==="goblin"){
@@ -30,7 +29,8 @@ const Pet = (props) => {
     return(
         <div className="petDiv">
             <div className="innerPetDiv">
-                <PetDecider/>
+                {/* <PetDecider/> */}
+                <img className="fairyImg" src={Fairy} alt="fairy"></img>
             </div>
         </div>
     )

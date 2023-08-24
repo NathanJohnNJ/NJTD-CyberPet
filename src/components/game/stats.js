@@ -5,97 +5,99 @@ import GameOver from './gameover';
 
 const Stats = (props) => {
 
-    let depletionRate, increaseFactor, decreaseFactor;
+    let depletionRate;
     if(props.difficulty==="hard"){
          depletionRate = 2;
-         increaseFactor = 1;
-         decreaseFactor = 3;
     } else if(props.difficulty==="medium"){
          depletionRate = 1;
-         increaseFactor = 2;
-         decreaseFactor = 2;
     } else {
          depletionRate = 0.5;
-         increaseFactor = 3;
-         decreaseFactor = 1;
     }
-    
-    useEffect(() => {
-        if(props.energy > 100){
-            props.setEnergy(100)
-        }else if(props.energy > 0){
-            setTimeout(() => props.setEnergy(props.energy - depletionRate), 1000);
-            console.log(props.energy)
-        }else if(props.energy<=0){
-            return(
-                <GameOver reason="You ran out of energy!" />
-            )
-        }
-    }, [props.energy])
-    useEffect(() => {
-        if(props.happiness > 100){
-            props.setHappiness(100)
-        }else if(props.happiness > 0){
-            setTimeout(() => props.setHappiness(props.happiness - depletionRate), 1000);
-            console.log(props.happiness)
-        }else if(props.happiness<=0){
-            return(
-                <GameOver reason="You ran out of happiness!" />
-            )
-        }
-    }, [props.happiness])
-    useEffect(() => {
-        if(props.hunger > 100){
-            props.setHunger(100)
-        }else if(props.hunger > 0){
-            setTimeout(() => props.setHunger(props.hunger - depletionRate), 1000);
-            console.log(props.hunger)
-        }else if(props.hunger<=0){
-            return(
-                <GameOver reason="You got too hungry!" />
-            )
-        }
-    }, [props.hunger])
-    useEffect(() => {
-        if(props.thirst > 100){
-            props.setThirst(100)
-        }else if(props.thirst > 0){
-            setTimeout(() => props.setThirst(props.thirst - depletionRate), 1000);
-            console.log(props.thirst)
-        }else if(props.thirst<=0){
-            return(
-                <GameOver reason="You got too thirsty!" />
-            )
-        }
-    }, [props.thirst])
 
-    function food(){
-            props.setHunger(props.hunger += 5*increaseFactor)
-            props.setThirst(props.thirst -= 2*decreaseFactor)
-            props.setHappiness(props.happiness += 3*increaseFactor)
-            props.etEnergy(props.energy += 5*decreaseFactor)
-    }
-    function drink(){
-            props.setThirst(props.thirst += 5*increaseFactor)
-            props.setHunger(props.hunger += 2*increaseFactor)
-            props.setHappiness(props.happiness += 3*increaseFactor)
-            props.setEnergy(props.energy += 2*increaseFactor)
-    }
-    function sleep(){
-            props.setEnergy(props.energy += 5*increaseFactor)
-            props.setHunger(props.hunger -= 3*decreaseFactor)
-            props.setThirst(props.thirst -= 3*decreaseFactor)
-            props.setHappiness(props.happiness += 2*increaseFactor)
-    }
-    function activity(){
-            props.setEnergy(props.energy -= 2*decreaseFactor)
-            props.setHunger(props.hunger -= 3*decreaseFactor)
-            props.setThirst(props.thirst -= 3*decreaseFactor)
-            props.setHappiness(props.happiness += 5*increaseFactor)  
-    }
-    // function explain(){
-    //     `You have chosen ${props.difficulty} difficulty. This means your stats will automatically increase/decrease at a rate of ${depletionRate}/second. `
-    // }
+    useEffect(() => {
+		let interval = null;
+		if (props.isActive && props.isPaused === false) {
+            if(props.energy > 100){
+                props.setEnergy(100)
+            } else if(props.energy > 0){
+                interval = setInterval(() => {
+                    props.setEnergy((energy) => energy - depletionRate);
+                }, 1000);
+            } else if(props.energy <= 0){
+                <GameOver reason="You ran out of energy!" />
+            }} else {
+                props.setEnergy(props.energy)
+                clearInterval(interval);
+            }
+                return () => {
+                    clearInterval(interval);
+            };
+                // eslint-disable-next-line
+        }, [props.isActive, props.isPaused]);
+
+
+        useEffect(() => {
+            let interval = null;
+            if (props.isActive && props.isPaused === false) {
+                if(props.happiness > 100){
+                    props.setHappiness(100)
+                } else if(props.happiness > 0){
+                    interval = setInterval(() => {
+                        props.setHappiness((happiness) => happiness - depletionRate);
+                    }, 1000);
+                } else if(props.happiness <= 0){
+                    <GameOver reason="You ran out of happiness!" />
+                }} else {
+                    props.setHappiness(props.happiness)
+                    clearInterval(interval);
+                }
+                    return () => {
+                        clearInterval(interval);
+                };
+                    // eslint-disable-next-line
+            }, [props.isActive, props.isPaused]);
+
+    useEffect(() => {
+		let interval = null;
+		if (props.isActive && props.isPaused === false) {
+            if(props.hunger > 100){
+                props.setHunger(100)
+            } else if(props.hunger > 0){
+                interval = setInterval(() => {
+                    props.setHunger((hunger) => hunger - depletionRate);
+                }, 1000);
+            } else if(props.hunger <= 0){
+                <GameOver reason="You ran out of hunger!" />
+            }} else {
+                props.setHunger(props.hunger)
+                clearInterval(interval);
+            }
+                return () => {
+                    clearInterval(interval);
+            };
+                // eslint-disable-next-line
+        }, [props.isActive, props.isPaused]);
+
+        useEffect(() => {
+            let interval = null;
+            if (props.isActive && props.isPaused === false) {
+                if(props.thirst > 100){
+                    props.setThirst(100)
+                } else if(props.thirst > 0){
+                    interval = setInterval(() => {
+                        props.setThirst((thirst) => thirst - depletionRate);
+                    }, 1000);
+                } else if(props.thirst <= 0){
+                    <GameOver reason="You ran out of thirst!" />
+                }} else {
+                    props.setThirst(props.thirst)
+                    clearInterval(interval);
+                }
+                    return () => {
+                        clearInterval(interval);
+                };
+                    // eslint-disable-next-line
+            }, [props.isActive, props.isPaused]);
  
     return(
         <div className="statsDiv">
@@ -131,12 +133,6 @@ const Stats = (props) => {
                         </div>
                     </div>
                 </fieldset>
-           </div>
-           <div className="buttonsDiv">
-                <button className="statBtn" onClick={food}>FOOD</button>
-                <button className="statBtn" onClick={drink}>DRINK</button>
-                <button className="statBtn" onClick={sleep}>SLEEP</button>
-                <button className="statBtn" onClick={activity}>{props.activity}</button>
            </div>
         </div>
     )

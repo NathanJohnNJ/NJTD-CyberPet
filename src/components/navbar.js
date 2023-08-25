@@ -12,7 +12,7 @@ const NavBar = () => {
                 <NavLink className={({isActive}) => isActive ? "current": "page" }  to="/njcodes">NJCODES</NavLink>
             </div>
             <div className="mainContent">
-                <Outlet />
+                {/* <Outlet /> */}
             </div>
         </div>
         </>

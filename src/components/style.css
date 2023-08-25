@@ -11,9 +11,12 @@
     --infoCol: #5f5b5b;
     --btnTextCol: #FFFFFF;
 }
+body{
+    background-color: var(--mainBG);
+}
 /********* NAVBAR *********/
 .navbarMain{
-    height: 50px;
+    height: 30px;
 }
 .navbarLeft {
     display: flex;
@@ -71,34 +74,23 @@
   }
 
 /********* MAIN GAME COMPONENT *********/
-/* .mainGameComp{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background: none;
-} */
 .mainGame{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background: none;
 }
 .background{
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-content: center;
-    width: 85vh;
-    height: 85vh; 
+    width: 90vh;
+    height: 90vh; 
     margin: 10px;
     margin-bottom: 80px;
     border-radius: 50%;
-    background-color: var(--secondarybg);
+    background-color: var(--secondaryBG);
     position: relative;
 }
 .container{
@@ -112,7 +104,7 @@
     font-size: 12vh;
     color: var(--mainBG);
     text-shadow: -3px 3px 1px var(--btntextcol) ;
-    margin-top: -5%;
+    margin-top: -32%;
     position:relative;
     width: 100%;
 }
@@ -120,6 +112,7 @@
     margin-top: -12vh;
     margin-bottom: 13vh;
 }
+
 .petInfo{
     text-transform: uppercase;
     font-family: 'Londrina Outline', cursive;
@@ -137,7 +130,7 @@
     font-size: 3vh;
     color: var(--mainBG);
     display: flex;
-    margin-top: -4vh;
+    margin-top: -5%;
     flex-direction: column;
     align-items: center;
 }
@@ -191,24 +184,37 @@
     flex-direction: column;
     justify-content: center;
     margin: 5px;
+    color: var(--labelCol);
 }
 .petName{
     margin: 20px 5px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--infoCol);
 }
 .submit{
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     font-size: 30px;
-    position: relative;
+    padding: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 99;
-
-    border-radius: 15%;
+    text-decoration: none;
+    border-radius: 33%;
     box-shadow: 2px 2px 3px #000000 ;
     background-color: var(--mainBG);
+    color: var(--secondaryBG);
+    margin-left: 5vw;
     }
 .submit:hover{
     text-shadow: 2px 2px 3px #000000 ;
     box-shadow: -2px -2px 3px #000000 inset;
+    border-radius:45%;
+    font-size: 40px;
     color: var(--secondaryBG);
     background-color: var(--mainBG);
 }
@@ -217,30 +223,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60vh;
-    height: 40vh;
-    margin-left: 12.6vh;
-    margin-top: -180px;
+    width: 65%;
+    height: 150%;
+    margin-left: 18%;
+    margin-top: -230px;
+    margin-bottom: 1%;
     border-radius: 20%;
     background-color: var(--infoCol);
 }
-.mainPet{
-    /* border-radius: 20%;
-    background-color: darkolivegreen; */
+/********* STATS COMPONENT *********/
+.statsDiv{
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 2%;
 }
-/********* STATS COMPONENT *********/
 .stats{
     position: relative;
     width: 425px;
-    margin-left: 100px;
 }
 .statsField{
     display: flex;
     flex-direction: column;
     height: 80px;
+    width:100%;
 }
 .statsLegend{
     width: 100px;
@@ -258,13 +263,11 @@
 .hungerThirstDiv{
     display: flex;
     justify-content: flex-start;
-
 }
 .energyHappinessDiv{
     display: flex;
     justify-content: flex-start;
 }
-
 .buttonsDiv{
     display: flex;
     justify-content: space-evenly;
@@ -283,31 +286,39 @@
 
 /********* BUTTONS *********/
 .petBtnDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-top: 10px;
 }
 .buttonsDiv{
     display: flex;
-    flex-direction: row;
-    justify-items: center;
     align-self: center;
     justify-self: center;
-    justify-content: space-around;
-    align-content: space-around;
+}
+.btnDiv{
+    min-width: 100px;
+}
+.gameBtn{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+	color: var(--secondaryBG);
+    background-color: var(--mainBG);
+}
+.gameBtn:hover{
+    color: var(--mainBG);
+    background-color: var(--secondaryBG);
 }
 /********* STOP WATCH *********/
 .mainGameTimer{
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .stop-watch {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+    justify-content: center;
     position: absolute;
     bottom:0;
 }
@@ -333,7 +344,6 @@
 .btn-grp {
 	display: flex;
     justify-content: center;
-    
 }
 .timerBtn {
 	border-radius: 14px;
@@ -342,7 +352,7 @@
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	color: #f5f5f5;
+	color: var(--mainBG);
 }
 .btn-one {
 	background-color: var(--secondaryBG);
@@ -353,10 +363,19 @@
 	background-color: var(--mainBG);
     display: flex;
     flex-direction: column;
+    
 }
 .playBtn, .pauseBtn, .resetBtn{
-    height:30px;
-    width:30px;
+    height:50px;
+    width:50px;
+    
+}
+.btn-start{
+    margin-top: -80px;
+}
+.game-btns{
+    margin-top: -80px;
+    height: 50px;
 }
 .resetBtn:hover{
     rotate: -0.75turn;
@@ -365,6 +384,7 @@
 .fairyImg{
     width:150px;
     height:150px;
+    margin: 20px;
 }
 /********* PAUSE OVERLAY *********/
 .pauseStats{
@@ -373,11 +393,33 @@
     margin-top: -10px;
     margin-bottom: 10px;
 }
+.pauseDigits {
+	font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+	color: var(--mainBG);
+    text-shadow: 2px 2px 3px #000000 ;
+}
+.pauseMili-sec {
+	color: var(--secondaryBG);
+}
 .newPause{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.pauseStatsLegend{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+}
+.pauseStatsField{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    width:100%;
+    margin-bottom: 20px;
 }
 .pauseLabel{
     font-family: 'League Spartan', sans-serif;
@@ -397,10 +439,9 @@
     justify-content: center;
     width: 80vh;
     height: 80vh; 
-    margin: 10px;
-    margin-bottom: 80px;
+    margin-top: 110px;
     border-radius: 50%;
-    background-color: var(--titlecol);
+    background-color: var(--infoCol);
     position: relative;
 }
 .pauseModal{
@@ -428,11 +469,14 @@
     text-align: center;
     font-family: 'Londrina Outline', cursive;
     font-size: 10vh;
-    color: rgb(171, 253, 204);
+    color: var(--btntextcol);
     text-shadow: -3px 3px 1px var(--btntextcol);
     margin-top: -5%;
     position:relative;
     width: 100%;
+}
+.pauseTimeText{
+    font-size: 25px;
 }
 .pausePlaying{
     text-align: center;

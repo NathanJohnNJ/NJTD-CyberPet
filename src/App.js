@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Game from './pages/game';  
@@ -28,6 +28,7 @@ function App() {
     <div className="App">
       <div className="mainContent">
         <NavBar gameCookie={gameCookie} setGameCookie={setGameCookie} />
+        <Outlet />
         <Footer />
       </div>
     <AnimatePresence mode="wait">

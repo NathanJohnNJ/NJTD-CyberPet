@@ -17,87 +17,67 @@ const Stats = (props) => {
     useEffect(() => {
 		let interval = null;
 		if (props.isActive && props.isPaused === false) {
-            if(props.energy > 100){
-                props.setEnergy(100)
-            } else if(props.energy > 0){
-                interval = setInterval(() => {
-                    props.setEnergy((energy) => energy - depletionRate);
-                }, 1000);
-            } else if(props.energy <= 0){
-                <GameOver reason="You ran out of energy!" />
-            }} else {
-                props.setEnergy(props.energy)
-                clearInterval(interval);
-            }
-                return () => {
-                    clearInterval(interval);
-            };
-                // eslint-disable-next-line
-        }, [props.isActive, props.isPaused]);
+            interval = setInterval(() => {
+                props.setEnergy(props.energy > 100 ? 100 : props.energy < 0 ? 0 : props.energy - depletionRate);
+            }, 1000);
+        } else {
+            props.setEnergy(props.energy)
+            clearInterval(interval);
+        }
+        return () => {
+            clearInterval(interval);
+        };
+    // eslint-disable-next-line
+    }, [props.isActive, props.isPaused, props.energy]);
 
-
-        useEffect(() => {
-            let interval = null;
-            if (props.isActive && props.isPaused === false) {
-                if(props.happiness > 100){
-                    props.setHappiness(100)
-                } else if(props.happiness > 0){
-                    interval = setInterval(() => {
-                        props.setHappiness((happiness) => happiness - depletionRate);
-                    }, 1000);
-                } else if(props.happiness <= 0){
-                    <GameOver reason="You ran out of happiness!" />
-                }} else {
-                    props.setHappiness(props.happiness)
-                    clearInterval(interval);
-                }
-                    return () => {
-                        clearInterval(interval);
-                };
-                    // eslint-disable-next-line
-            }, [props.isActive, props.isPaused]);
 
     useEffect(() => {
-		let interval = null;
-		if (props.isActive && props.isPaused === false) {
-            if(props.hunger > 100){
-                props.setHunger(100)
-            } else if(props.hunger > 0){
-                interval = setInterval(() => {
-                    props.setHunger((hunger) => hunger - depletionRate);
-                }, 1000);
-            } else if(props.hunger <= 0){
-                <GameOver reason="You ran out of hunger!" />
-            }} else {
-                props.setHunger(props.hunger)
-                clearInterval(interval);
-            }
-                return () => {
-                    clearInterval(interval);
-            };
-                // eslint-disable-next-line
-        }, [props.isActive, props.isPaused]);
+        let interval = null;
+        if (props.isActive && props.isPaused === false) {
+            interval = setInterval(() => {
+                props.setHappiness(props.happiness > 100 ? 100 : props.happiness < 0 ? 0 : props.happiness - depletionRate);
+            }, 1000);
+        } else {
+            props.setHappiness(props.happiness)
+            clearInterval(interval);
+        }
+        return () => {
+            clearInterval(interval);
+        };
+    // eslint-disable-next-line
+    }, [props.isActive, props.isPaused, props.happiness]);
 
-        useEffect(() => {
-            let interval = null;
-            if (props.isActive && props.isPaused === false) {
-                if(props.thirst > 100){
-                    props.setThirst(100)
-                } else if(props.thirst > 0){
-                    interval = setInterval(() => {
-                        props.setThirst((thirst) => thirst - depletionRate);
-                    }, 1000);
-                } else if(props.thirst <= 0){
-                    <GameOver reason="You ran out of thirst!" />
-                }} else {
-                    props.setThirst(props.thirst)
-                    clearInterval(interval);
-                }
-                    return () => {
-                        clearInterval(interval);
-                };
-                    // eslint-disable-next-line
-            }, [props.isActive, props.isPaused]);
+    useEffect(() => {
+        let interval = null;
+        if (props.isActive && props.isPaused === false) {
+            interval = setInterval(() => {
+                props.setHunger(props.hunger > 100 ? 100 : props.hunger < 0 ? 0 : props.hunger - depletionRate);
+            }, 1000);
+        } else {
+            props.setHunger(props.hunger)
+            clearInterval(interval);
+        }
+        return () => {
+            clearInterval(interval);
+        };
+    // eslint-disable-next-line
+    }, [props.isActive, props.isPaused, props.hunger]);
+
+    useEffect(() => {
+        let interval = null;
+        if (props.isActive && props.isPaused === false) {
+            interval = setInterval(() => {
+                props.setThirst(props.thirst > 100 ? 100 : props.thirst < 0 ? 0 : props.thirst - depletionRate);
+            }, 1000);
+        } else {
+            props.setThirst(props.thirst)
+            clearInterval(interval);
+        }
+        return () => {
+            clearInterval(interval);
+        };
+    // eslint-disable-next-line
+    }, [props.isActive, props.isPaused, props.thirst]);
  
     return(
         <div className="statsDiv">

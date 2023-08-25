@@ -2,14 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
-
+/********* COLOUR VARIABLES *********/
 :root{
     --mainBG: #FFFFFF;
-    --secondaryBG: #FF0000;
-    --titleCol: #bfb9b9;
-    --labelCol: #1b1b98;
-    --infoCol: #5f5b5b;
-    --btnTextCol: #FFFFFF;
+    --secondaryBG: #FF6400;
+    --pauseBG: #9A582C;
+    --gameBG: #A7796A;
+    --titleCol: #3046CF;
+    --labelCol: #FF9154;
+    --infoCol: #FAA75D;
+    --bgOpp: #000000;
 }
 body{
     background-color: var(--mainBG);
@@ -32,7 +34,7 @@ body{
     font-family: 'League Spartan', sans-serif;
     font-weight: 800;
     text-decoration: none;
-    color: var(--btntextcol)
+    color: var(--infoCol)
 }
 .current{
     margin: 10px;
@@ -40,13 +42,13 @@ body{
     font-family: 'League Spartan', sans-serif;
     font-weight: 800;
     text-decoration: none;
-    color: var(--labelCol);
+    color: var(--bgOpp);
 }
 
 .page:hover, .current:hover{
     text-decoration: underline dashed;
-    text-decoration-color: var(--labelcol);
-    
+    text-decoration-color: var(--labelCol);
+    color: var(--labelCol);    
 }
 
 /********* INTRO *********/
@@ -102,8 +104,8 @@ body{
 .gameTitle{
     font-family: 'Londrina Outline', cursive;
     font-size: 12vh;
-    color: var(--mainBG);
-    text-shadow: -3px 3px 1px var(--btntextcol) ;
+    color: var(--titleCol);
+    text-shadow: -3px 3px 1px black ;
     margin-top: -32%;
     position:relative;
     width: 100%;
@@ -118,7 +120,7 @@ body{
     font-family: 'Londrina Outline', cursive;
     letter-spacing: 2.5px;
     font-size: 5vh;
-    color: var(--mainBG);
+    color: var(--infoCol);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,7 +130,7 @@ body{
     font-family: 'Londrina Outline', cursive;
     letter-spacing: 2px;
     font-size: 3vh;
-    color: var(--mainBG);
+    color: var(--infoCol);
     display: flex;
     margin-top: -5%;
     flex-direction: column;
@@ -204,18 +206,18 @@ body{
     align-items: center;
     z-index: 99;
     text-decoration: none;
-    border-radius: 33%;
+    border-radius: 35%;
     box-shadow: 2px 2px 3px #000000 ;
-    background-color: var(--mainBG);
-    color: var(--secondaryBG);
-    margin-left: 5vw;
+    background-color: var(--titleCol);
+    color: var(--mainBG);
     }
 .submit:hover{
     text-shadow: 2px 2px 3px #000000 ;
     box-shadow: -2px -2px 3px #000000 inset;
     border-radius:45%;
     font-size: 40px;
-    color: var(--secondaryBG);
+    padding: 15px;
+    color: var(--titleCol);
     background-color: var(--mainBG);
 }
 /********* PET COMPONENT *********/
@@ -226,10 +228,10 @@ body{
     width: 65%;
     height: 150%;
     margin-left: 18%;
-    margin-top: -230px;
+    margin-top: -180px;
     margin-bottom: 1%;
     border-radius: 20%;
-    background-color: var(--infoCol);
+    background-color: var(--gameBG);
 }
 /********* STATS COMPONENT *********/
 .statsDiv{
@@ -253,6 +255,7 @@ body{
     font-family: 'League Spartan', sans-serif;
     font-weight: 700;
     font-size: 20px;
+    color: var(--labelCol)
 }
 .progress{
     width: 200px;
@@ -268,11 +271,7 @@ body{
     display: flex;
     justify-content: flex-start;
 }
-.buttonsDiv{
-    display: flex;
-    justify-content: space-evenly;
-    width:200px;
-}
+
 .statBtn{
     text-transform: uppercase;
 }
@@ -285,6 +284,18 @@ body{
 }
 
 /********* BUTTONS *********/
+.buttonsDiv{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    position: relative;
+}
+.topBtns{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+}
 .petBtnDiv{
     margin-top: 10px;
 }
@@ -302,10 +313,15 @@ body{
     font-size: 20px;
 	color: var(--secondaryBG);
     background-color: var(--mainBG);
+    text-decoration: none;
+    border-radius: 35%;
+    box-shadow: 2px 2px 3px #000000 ;
+    background-color: var(--titleCol);
+    color: var(--mainBG);
 }
 .gameBtn:hover{
-    color: var(--mainBG);
-    background-color: var(--secondaryBG);
+    color: var(--titleCol);
+    background-color: var(--mainBG);
 }
 /********* STOP WATCH *********/
 .mainGameTimer{
@@ -313,6 +329,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* position:relative; */
 }
 .stop-watch {
 	display: flex;
@@ -371,20 +388,20 @@ body{
     
 }
 .btn-start{
-    margin-top: -80px;
+    margin-top: -165px;
 }
 .game-btns{
-    margin-top: -80px;
+    margin-top: -165px;
     height: 50px;
 }
 .resetBtn:hover{
     rotate: -0.75turn;
     transition: rotate 1s;
 }
-.fairyImg{
-    width:150px;
-    height:150px;
-    margin: 20px;
+.petImg{
+    width:130px;
+    height:130px;
+    margin-top: 1px;
 }
 /********* PAUSE OVERLAY *********/
 .pauseStats{
@@ -401,7 +418,7 @@ body{
     text-shadow: 2px 2px 3px #000000 ;
 }
 .pauseMili-sec {
-	color: var(--secondaryBG);
+	color: var(--bgOpp);
 }
 .newPause{
     display:flex;

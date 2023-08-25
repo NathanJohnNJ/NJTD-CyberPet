@@ -54,20 +54,23 @@ const Buttons = (props) => {
  
     return(
         <div className="buttonsDiv">
-            <div className="btnDiv" onClick={food}>
-                <button className="gameBtn" onClick={food}>FOOD</button>
+            <div className="topBtns">
+                <div className="btnDiv" onClick={food}>
+                    <button className="gameBtn" onClick={food}>FOOD</button>
+                </div>
+                <div className="btnDiv" onClick={drink}>
+                    <button className="gameBtn" onClick={drink}>DRINK</button>
+                </div>
             </div>
-            <div className="btnDiv" onClick={drink}>
-                <button className="gameBtn" onClick={drink}>DRINK</button>
+            <div className="topBtns">
+                <div className="btnDiv" onClick={sleep}>
+                    <button className="gameBtn" onClick={sleep}>SLEEP</button>
+                </div>
+                <div className="btnDiv" onClick={activityHandle}>
+                    <button className="gameBtn" onClick={activityHandle}>{props.activity}</button>
+                </div>
             </div>
-            <div className="btnDiv" onClick={sleep}>
-                <button className="gameBtn" onClick={sleep}>SLEEP</button>
-            </div>
-            <div className="btnDiv" onClick={activityHandle}>
-                <button className="gameBtn" onClick={activityHandle}>{props.activity}</button>
-            </div>
-            
-            </div>
+        </div>
     )
 }
 

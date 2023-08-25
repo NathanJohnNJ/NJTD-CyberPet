@@ -1,5 +1,6 @@
 import '../style.css';
-import Fairy from '../game/petImages/fairy.gif'
+import Bear from '../game/petImages/Bear.gif'
+import Bearpng from '../game/petImages/Bear.png'
 
 const Pet = (props) => {
 
@@ -30,7 +31,15 @@ const Pet = (props) => {
         <div className="petDiv">
             <div className="innerPetDiv">
                 {/* <PetDecider/> */}
-                <img className="fairyImg" src={Fairy} alt="fairy"></img>
+                {(props.isActive)
+                ?<>
+                    <img className="petImg" src={Bear} alt="bear"></img>
+                </>
+                :
+                <>
+                    <img className="petImg" src={Bearpng} alt="bear"></img>
+                </>
+                }
             </div>
         </div>
     )

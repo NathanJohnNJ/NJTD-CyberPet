@@ -1,0 +1,130 @@
+/********* FONTS *********/
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+/********* COLOUR VARIABLES *********/
+:root{
+    --mainBG: #FFFFFF;
+    --secondaryBG: #FF6400;
+    --pauseBG: #9A582C;
+    --gameBG: #A7796A;
+    --titleCol: #3046CF;
+    --labelCol: #FF9154;
+    --infoCol: #FAA75D;
+    --bgOpp: #000000;
+}
+body{
+    background-color: var(--mainBG);
+}
+
+.GOgameTitle{
+    font-family: 'Londrina Outline', cursive;
+    font-size: 12vh;
+    color: var(--mainBG);
+    text-shadow: -3px 3px 1px var(--titleCol) ;
+    position:relative;
+    margin-top: -2%;
+    width: 100%;
+    margin-bottom: 1%;
+}
+.GOgameOptions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+.GOfirstField{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.GOfirstField fieldset{
+    display:flex;
+    flex-direction: row;
+    align-items: space-between;
+}
+.GOfirstField .checkBoxDiv{
+    display:flex;
+    flex-direction: column-reverse;
+    align-items: center
+}
+.GOfieldSet{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 180px;
+    align-items: center;   
+}
+.GOlegend{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--labelCol)
+}
+
+.GOlabel{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    color: var(--infoCol);
+}
+.GONameLabel{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--labelCol);
+    margin-top:10px;
+    margin-bottom: -15px;
+}
+.GOpetName{
+    margin: 20px 5px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--infoCol);
+    width: 25vw;
+}
+.GOsecondField{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:-15px;
+}
+.GOSubmitDiv{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+.GOsubmit{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    padding: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 99;
+    text-decoration: none;
+    border-radius: 35%;
+    box-shadow: 2px 2px 3px #000000 ;
+    background-color: var(--titleCol);
+    color: var(--mainBG);
+    }
+.GOsubmit:hover{
+    text-shadow: 2px 2px 3px #000000 ;
+    box-shadow: -2px -2px 3px #000000 inset;
+    border-radius:45%;
+    font-size: 40px;
+    padding: 15px;
+    color: var(--titleCol);
+    background-color: var(--mainBG);
+}

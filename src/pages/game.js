@@ -21,7 +21,6 @@ const Game = (props) => {
             transition={{ duration: 2 }}
             >
                 <div className="background">
-                <h1 className="gameTitle">CYBER PET</h1>
                 {
                     !props.gameCookie
                 ?
